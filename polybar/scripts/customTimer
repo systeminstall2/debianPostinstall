@@ -1,0 +1,1 @@
+for i in {0..1};do sleep 1200 && for i in {0..5}; do xset dpms force off;done;done && sleep 1200 && zenity --error --text="15 MINUTE BREAK IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII" --title="WARNING" && sleep 5 && for i in {0..99}; do xset dpms force off;done
