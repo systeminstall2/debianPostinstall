@@ -68,7 +68,7 @@ tar --extract -f ventoy.tar.gz
 sudo cp ventoy-$ventoyVersion/Ventoy2Disk.sh /usr/bin/ventoy
 sudo chmod +x /usr/bin/ventoy.sh
 
-sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm cargo rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
+sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm cargo network-manager-gnome wmname rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
 
 #Wallpaper
 
