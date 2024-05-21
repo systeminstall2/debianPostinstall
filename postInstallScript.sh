@@ -12,6 +12,8 @@ sudo apt install curl -y
 
 #Installing Software
 
+#TODO PROTONVPN
+
 LATEST_VERSION=$(curl -s https://api.github.com/repos/balena-io/etcher/releases/latest | grep tag_name | cut -d\" -f4)
 LATEST_VERSION_ADAPTED=${LATEST_VERSION:1}
 ETCHER_DEB_URL="https://github.com/balena-io/etcher/releases/download/${LATEST_VERSION}/balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb"
@@ -55,7 +57,7 @@ virtualbox_name=$(head -n 5 testttt | tail -n 1 | awk '{print $1}')
 
 sudo apt install flatpak -y 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install flathub org.torproject.torbrowser-launcher -y
+printf "a\n" | sudo flatpak install flathub org.torproject.torbrowser-launcher -y
 printf "#!/bin/bash\n\nflatpak run org.torproject.torbrowser-launcher" | sudo tee /usr/bin/torbrowser-launcher
 sudo chmod +x /usr/bin/torbrowser-launcher
 
@@ -66,7 +68,7 @@ tar --extract -f ventoy.tar.gz
 sudo cp ventoy-$ventoyVersion/Ventoy2Disk.sh /usr/bin/ventoy
 sudo chmod +x /usr/bin/ventoy.sh
 
-sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm cargo protonvpn rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
+sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm cargo rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
 
 #Wallpaper
 
