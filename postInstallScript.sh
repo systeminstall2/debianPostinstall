@@ -3,6 +3,15 @@ echo "Defaults passwd_timeout=1000" | sudo tee -a /etc/sudoers.d/custom_sudoers
 
 printf "\n\n\n The Script will install everything now, you don't have to do anything!\n\n\n"
 
+#Creating Basic folders
+
+mkdir ~/Desktop
+mkdir ~/Documents
+mkdir ~/Downloads
+mkdir ~/Unwichtig
+mkdir ~/Hashcat
+mkdir ~/Music
+
 # Getting all the files
 
 mkdir ~/.config/bspwm
