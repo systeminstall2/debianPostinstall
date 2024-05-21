@@ -64,7 +64,7 @@ tar --extract -f ventoy.tar.gz
 sudo cp ventoy-$ventoyVersion/Ventoy2Disk.sh /usr/bin/ventoy
 sudo chmod +x /usr/bin/ventoy.sh
 
-sudo apt-get update && sudo apt upgrade && sudo apt install balena-etcher cargo protonvpn rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh -y
+sudo apt-get update && sudo apt upgrade && sudo apt install balena-etcher sddm cargo protonvpn rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh -y
 
 #Wallpaper
 
@@ -89,23 +89,24 @@ cat ~/debianPostinstall/zshrc > ~/.zshrc
 
 # Writing polybar config ###############################
 
-sudo rm -rf ~/.config/polybar/ && sudo cp ~/debianPostinstall/polybar ~/.config/ -r &&
+sudo rm -rf ~/.config/polybar/ && sudo cp ~/debianPostinstall/polybar ~/.config/ -r
 
 sudo chmod +x ~/.config/polybar/scripts/check-network
 sudo chmod +x ~/.config/polybar/launch.sh
+
 # Writing bspwmrc ##############################################
 
-sudo rm ~/.config/bspwm/bspwmrc
+mkdir -p ~/.config/bspwm/
 cat ~/debianPostinstall/bspwmrc > ~/.config/bspwm/bspwmrc
 
 # Writin sxhkdrc ########################################
 
-sudo rm ~/.config/sxhkd/sxhkdrc
+mkdir -p ~/.config/sxhkd/
 cat ~/debianPostinstall/sxhkdrc >  ~/.config/sxhkd/sxhkdrc
 
 # Writing rofi ################################
 
-rm -rf ~/.config/rofi && mkdir ~/.config/rofi && cp ~/debianPostinstall/rofi/* ~/.config/rofi/ -r
+mkdir -p ~/.config/rofi && cp ~/debianPostinstall/rofi/* ~/.config/rofi/ -r
 
 # Writing terminator ###################################
 
@@ -136,4 +137,7 @@ rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
 
 sudo rm -rf /etc/sudoers.d/custom_sudoers
 
-echo "\n\nInstallation finished\n\n\nDon't forget to install the correct driver for this device!"
+printf "\n\n\n\DONE!\n\n\n"
+for i in {1..10};do echo "Rebooting in $i seconds" && sleep 1;done
+
+systemctl reboot
