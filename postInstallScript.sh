@@ -56,7 +56,7 @@ sudo apt install virtualbox -y > testttt
 virtualbox_name=$(head -n 5 testttt | tail -n 1 | awk '{print $1}')
 
 sudo apt install flatpak -y 
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+printf "a\n" | flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 printf "a\n" | sudo flatpak install flathub org.torproject.torbrowser-launcher -y
 printf "#!/bin/bash\n\nflatpak run org.torproject.torbrowser-launcher" | sudo tee /usr/bin/torbrowser-launcher
 sudo chmod +x /usr/bin/torbrowser-launcher
@@ -93,7 +93,7 @@ cat ~/debianPostinstall/zshrc > ~/.zshrc
 
 # Writing polybar config ###############################
 
-sudo rm -rf ~/.config/polybar/ && sudo cp ~/debianPostinstall/polybar ~/.config/polybar -r
+sudo rm -rf ~/.config/polybar/ && sudo cp ~/debianPostinstall/polybar/* ~/.config/polybar/ -r
 
 sudo chmod +x ~/.config/polybar/scripts/check-network
 sudo chmod +x ~/.config/polybar/launch.sh
