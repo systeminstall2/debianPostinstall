@@ -8,6 +8,8 @@ printf "\n\n\n The Script will install everything now, you don't have to do anyt
 mkdir ~/.config/bspwm
 mkdir ~/.config/sxhkd
 
+sudo apt install curl
+
 #Installing Software
 
 LATEST_VERSION=$(curl -s https://api.github.com/repos/balena-io/etcher/releases/latest | grep tag_name | cut -d\" -f4)
