@@ -119,6 +119,8 @@ mkdir -p ~/.config/terminator && cat ~/debianPostinstall/terminator > ~/.config/
 
 # Writing nvim #########################################
 
+python3 -m venv venv && source venv/bin/activate
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installRust.sh && sudo chmod +x installRust.sh && ./installRust.sh -q -y
 echo 'export RUSTUP_HOME=/opt/rust' | sudo tee -a /etc/profile.d/rust.sh
 echo 'export PATH=$PATH:/opt/rust/bin' | sudo tee -a /etc/profile.d/rust.sh
