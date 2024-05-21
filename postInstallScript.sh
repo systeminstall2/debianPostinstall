@@ -137,6 +137,13 @@ curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-
 echo "export PATH=/home/kali/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
 
+sudo chmod 755 ~/.config/bspwm/bspwmrc
+sudo chmod 644 ~/.config/sxhkd/sxhkdrc
+sudo chsh -s /usr/bin/zsh
+sudo chsh -s /usr/bin/zsh n0ne
+
+sudo su -c 'echo "arch" > /etc/hostname'
+
 #finishing
 
 sudo rm -rf /etc/sudoers.d/custom_sudoers
