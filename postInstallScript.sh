@@ -8,7 +8,7 @@ printf "\n\n\n The Script will install everything now, you don't have to do anyt
 mkdir ~/.config/bspwm
 mkdir ~/.config/sxhkd
 
-sudo apt install curl
+sudo apt install curl -y
 
 #Installing Software
 
@@ -38,22 +38,22 @@ wget "https://portswigger-cdn.net/burp/releases/download?product=community&versi
 chmod +x burp.sh
 printf "o\n \ny\n \n" | ./burp.sh -c
 
-sudo apt-get install wget gpg
+sudo apt-get install wget gpg -y
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
 rm -f packages.microsoft.gpg
-sudo apt-get update
-sudo apt-get install code
-sudo apt-get autoremove
+sudo apt-get update -y
+sudo apt-get install code -y
+sudo apt-get autoremove -y
 
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian $(lsb_release -d -a | tail -n 1 | awk '{print $2}') contrib" | sudo tee -a /etc/apt/sources.list
 wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
-sudo apt update
-sudo apt install virtualbox > testttt
+sudo apt update -y
+sudo apt install virtualbox -y > testttt
 virtualbox_name=$(head -n 5 testttt | tail -n 1 | awk '{print $1}')
 
-sudo apt install flatpak
+sudo apt install flatpak -y 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install flathub org.torproject.torbrowser-launcher -y
 printf "#!/bin/bash\n\nflatpak run org.torproject.torbrowser-launcher" | sudo tee /usr/bin/torbrowser-launcher
@@ -66,7 +66,7 @@ tar --extract -f ventoy.tar.gz
 sudo cp ventoy-$ventoyVersion/Ventoy2Disk.sh /usr/bin/ventoy
 sudo chmod +x /usr/bin/ventoy.sh
 
-sudo apt-get update && sudo apt upgrade && sudo apt install balena-etcher sddm cargo protonvpn rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh -y
+sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm cargo protonvpn rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
 
 #Wallpaper
 
