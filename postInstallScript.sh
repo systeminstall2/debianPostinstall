@@ -93,7 +93,7 @@ cat ~/debianPostinstall/zshrc > ~/.zshrc
 
 # Writing polybar config ###############################
 
-sudo rm -rf ~/.config/polybar/ && sudo cp ~/debianPostinstall/polybar ~/.config/ -r
+sudo rm -rf ~/.config/polybar/ && sudo cp ~/debianPostinstall/polybar ~/.config/polybar -r
 
 sudo chmod +x ~/.config/polybar/scripts/check-network
 sudo chmod +x ~/.config/polybar/launch.sh
