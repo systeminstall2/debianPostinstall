@@ -56,8 +56,8 @@ sudo apt install virtualbox -y > testttt
 virtualbox_name=$(head -n 5 testttt | tail -n 1 | awk '{print $1}')
 
 sudo apt install flatpak -y 
-printf "a\n" | flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-printf "a\n" | sudo flatpak install flathub org.torproject.torbrowser-launcher -y
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install flathub org.torproject.torbrowser-launcher -y
 printf "#!/bin/bash\n\nflatpak run org.torproject.torbrowser-launcher" | sudo tee /usr/bin/torbrowser-launcher
 sudo chmod +x /usr/bin/torbrowser-launcher
 
@@ -95,7 +95,7 @@ cat ~/debianPostinstall/zshrc > ~/.zshrc
 
 sudo rm -rf ~/.config/polybar/
 mkdir -p ~/.config/polybar/
-sudo cp ~/debianPostinstall/polybar/* ~/.config/polybar/ -r
+cp ~/debianPostinstall/polybar/* ~/.config/polybar/ -r
 
 sudo chmod +x ~/.config/polybar/scripts/check-network
 sudo chmod +x ~/.config/polybar/launch.sh
@@ -138,7 +138,7 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 LV_BRANCH='release-1.3/neovim-0.9'
 curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && sudo chmod +x installLunarvim.sh && yes | ./installLunarvim.sh
-echo "export PATH=/home/kali/.local/bin:\$PATH" >> ~/.zshenv
+echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
 
 sudo chmod 755 ~/.config/bspwm/bspwmrc
