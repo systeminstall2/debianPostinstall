@@ -5,10 +5,8 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # Polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-monitorName=$(xrandr | head -n 2 | tail -n 1 | awk '{print $1}')
-
-bspc monitor $monitorName -d 1 2 3 4 5
-#bspc monitor DP-2 -d 6 7 8 9 0         use xrandr to get the second monitor name
+bspc monitor DP-1 -d 1 2 3 4 5          use xrandr to get the second monitor name: monitorName=$(xrandr | head -n 2 | tail -n 1 | awk '{print $1}')
+#bspc monitor DP-2 -d 6 7 8 9 0         use xrandr to get the second monitor name: xrandr
 
 bspc config border_width         3
 bspc config window_gap           0
