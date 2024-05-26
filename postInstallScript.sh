@@ -14,11 +14,10 @@ mkdir ~/Unwichtig
 mkdir ~/Hashcat
 mkdir ~/Music
 
-# Getting all the files
-
-sudo apt install curl -y
 
 #Installing Software
+
+sudo apt install curl -y
 
 #TODO PROTONVPN
 
@@ -94,6 +93,20 @@ sudo systemctl enable bluetooth
 
 mkdir fonts && cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip" && unzip Hack.zip && sudo mkdir -p /usr/local/share/fonts && rm Hack.zip && sudo mv * /usr/local/share/fonts/ && cd ..
 cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip" && unzip JetBrainsMono.zip && rm JetBrainsMono.zip && sudo mv * /usr/local/share/fonts/ && cd ..
+
+# Writing bspwmrc ##############################################
+
+mkdir ~/.config/bspwm
+mkdir -p ~/.config/bspwm/
+cat ~/debianPostinstall/bspwmrc > ~/.config/bspwm/bspwmrc
+sudo chmod 755 ~/.config/bspwm/bspwmrc
+
+# Writin sxhkdrc ########################################
+
+mkdir ~/.config/sxhkd
+mkdir -p ~/.config/sxhkd/
+cat ~/debianPostinstall/sxhkdrc >  ~/.config/sxhkd/sxhkdrc
+sudo chmod 644 ~/.config/sxhkd/sxhkdrc
 
 # Writing zshrc ##################################
 
