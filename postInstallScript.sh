@@ -1,3 +1,5 @@
+echo "a" | sudo -S echo
+
 echo "Defaults passwd_timeout=1000" | sudo tee -a /etc/sudoers.d/custom_sudoers
 
 
