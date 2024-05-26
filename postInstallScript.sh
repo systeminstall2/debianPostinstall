@@ -16,9 +16,6 @@ mkdir ~/Music
 
 # Getting all the files
 
-mkdir ~/.config/bspwm
-mkdir ~/.config/sxhkd
-
 sudo apt install curl -y
 
 #Installing Software
@@ -111,16 +108,6 @@ cp ~/debianPostinstall/polybar/* ~/.config/polybar/ -r
 sudo chmod +x ~/.config/polybar/scripts/check-network
 sudo chmod +x ~/.config/polybar/launch.sh
 
-# Writing bspwmrc ##############################################
-
-mkdir -p ~/.config/bspwm/
-cat ~/debianPostinstall/bspwmrc > ~/.config/bspwm/bspwmrc
-
-# Writin sxhkdrc ########################################
-
-mkdir -p ~/.config/sxhkd/
-cat ~/debianPostinstall/sxhkdrc >  ~/.config/sxhkd/sxhkdrc
-
 # Writing rofi ################################
 
 mkdir -p ~/.config/rofi && cp ~/debianPostinstall/rofi/* ~/.config/rofi/ -r
@@ -150,8 +137,6 @@ curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
 
-sudo chmod 755 ~/.config/bspwm/bspwmrc
-sudo chmod 644 ~/.config/sxhkd/sxhkdrc
 sudo chsh -s /usr/bin/zsh
 sudo chsh -s /usr/bin/zsh n0ne
 
