@@ -46,7 +46,9 @@ VERSION=$(cat latest | grep -E "....\..\..\.." --color=auto -o | head -n 1)
 wget "https://portswigger-cdn.net/burp/releases/download?product=community&version=2024.3.1.4&type=Linux" -O burp.sh
 chmod +x burp.sh
 printf "o\n \ny\n \n" | ./burp.sh -c
-sudo mv ~/BurpSuiteCommunity/BurpSuiteCommunity /usr/bin/Burpsuite
+sudo mv ~/BurpSuiteCommunity/ /opt/Burpsuite -r
+echo "bash /opt/Burpsuite/BurpSuiteCommunity" | sudo tee /usr/bin/Burpsuite
+mv /opt/Burpsuite/Burp\ Suite\ Community\ Edition.desktop ~/.local/share/applications/
 
 sudo apt-get install wget gpg -y
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -74,7 +76,8 @@ ventoyURL="https://github.com/ventoy/Ventoy/releases/download/v$ventoyVersion/ve
 wget $ventoyURL -O ventoy.tar.gz
 tar --extract -f ventoy.tar.gz
 sudo cp ventoy-$ventoyVersion/ /opt/ventoy -r
-echo "cd /opt/ventoy && bash Ventoy2Disk.sh && cd ~/" | sudo tee /usr/bin/ventoy
+# Very hacky solution and this deserves the death sentence but it works...
+echo "sudo bash /opt/ventoy/Ventoy2Disk.sh \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9" | sudo tee /usr/bin/ventoy
 sudo chmod +x /usr/bin/ventoy
 
 sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm python3-pynvim cargo network-manager-gnome firefox-esr wmname rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
