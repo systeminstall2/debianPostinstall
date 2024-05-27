@@ -48,6 +48,7 @@ chmod +x burp.sh
 printf "o\n \ny\n \n" | ./burp.sh -c
 sudo mv ~/BurpSuiteCommunity/ /opt/Burpsuite
 echo "bash /opt/Burpsuite/BurpSuiteCommunity" | sudo tee /usr/bin/Burpsuite
+mkdir ~/.local/share/applications -p
 mv /opt/Burpsuite/Burp\ Suite\ Community\ Edition.desktop ~/.local/share/applications/Burpsuite.desktop
 
 sudo apt-get install wget gpg -y
@@ -145,6 +146,10 @@ echo 'export PATH=$PATH:/opt/rust/bin' | sudo tee -a /etc/profile.d/rust.sh
 source ~/.cargo/env
 source /etc/profile
 rustup default stable
+source ~/.cargo/env
+source /etc/profile
+#Temporary alias bc after reboot it works anyway
+alias cargo=~/.cargo/bin/cargo
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 sudo chmod +x nvim.appimage
 sudo mv nvim.appimage /usr/bin/nvim
