@@ -177,6 +177,8 @@ sudo su -c 'echo "arch" > /etc/hostname'
 
 sudo apt remove --purge plasma* kde* -y
 
+sudo apt install dolphin -y
+
 #finishing
 
 sudo rm -rf /etc/sudoers.d/custom_sudoers
