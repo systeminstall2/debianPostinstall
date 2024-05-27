@@ -80,7 +80,7 @@ sudo cp ventoy-$ventoyVersion/ /opt/ventoy -r
 echo "sudo bash /opt/ventoy/Ventoy2Disk.sh \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9" | sudo tee /usr/bin/ventoy
 sudo chmod +x /usr/bin/ventoy
 
-sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm python3-pynvim cargo network-manager-gnome firefox-esr wmname rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
+sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm python3-pynvim cargo network-manager-gnome dolphin firefox-esr wmname rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
 
 #Wallpaper
 
@@ -144,6 +144,7 @@ echo 'export RUSTUP_HOME=/opt/rust' | sudo tee -a /etc/profile.d/rust.sh
 echo 'export PATH=$PATH:/opt/rust/bin' | sudo tee -a /etc/profile.d/rust.sh
 source ~/.cargo/env
 source /etc/profile
+rustup default stable
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 sudo chmod +x nvim.appimage
 sudo mv nvim.appimage /usr/bin/nvim
@@ -167,6 +168,6 @@ sudo su -c 'echo "arch" > /etc/hostname'
 sudo rm -rf /etc/sudoers.d/custom_sudoers
 
 printf "\n\n\n\DONE!\n\n\n"
-for i in {1..10};do echo "Rebooting in $i seconds" && sleep 1;done
+for i in {10..1};do echo "Rebooting in $i seconds" && sleep 1;done
 
 systemctl reboot
