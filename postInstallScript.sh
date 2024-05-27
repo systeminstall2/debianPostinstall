@@ -48,7 +48,7 @@ chmod +x burp.sh
 printf "o\n \ny\n \n" | ./burp.sh -c
 sudo mv ~/BurpSuiteCommunity/ /opt/Burpsuite
 echo "bash /opt/Burpsuite/BurpSuiteCommunity" | sudo tee /usr/bin/Burpsuite
-mv /opt/Burpsuite/Burp\ Suite\ Community\ Edition.desktop ~/.local/share/applications/
+mv /opt/Burpsuite/Burp\ Suite\ Community\ Edition.desktop ~/.local/share/applications/Burpsuite.desktop
 
 sudo apt-get install wget gpg -y
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -80,7 +80,7 @@ sudo cp ventoy-$ventoyVersion/ /opt/ventoy -r
 echo "sudo bash /opt/ventoy/Ventoy2Disk.sh \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9" | sudo tee /usr/bin/ventoy
 sudo chmod +x /usr/bin/ventoy
 
-sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm python3-pynvim cargo network-manager-gnome dolphin firefox-esr wmname rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
+sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm python3-pynvim fzf network-manager-gnome dolphin firefox-esr wmname rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
 
 #Wallpaper
 
