@@ -26,7 +26,7 @@ LATEST_VERSION_ADAPTED=${LATEST_VERSION:1}
 ETCHER_DEB_URL="https://github.com/balena-io/etcher/releases/download/${LATEST_VERSION}/balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb"
 sudo wget $ETCHER_DEB_URL
 #sudo chown _apt balena-etcher_${LATEST_VERSION}_amd64.deb
-echo "a" | sudo -S apt install ./balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb -y
+sudo apt install ./balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb -y
 
 LATEST_VERSION=$(curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/releases/latest | grep tag_name | cut -d\" -f4)
 FASTFETCH_DEB_URL="https://github.com/fastfetch-cli/fastfetch/releases/download/${LATEST_VERSION}/fastfetch-linux-amd64.deb"
@@ -71,7 +71,7 @@ sudo cp ventoy-$ventoyVersion/ /opt/ventoy -r
 echo "sudo bash /opt/ventoy/Ventoy2Disk.sh \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9" | sudo tee /usr/bin/ventoy
 sudo chmod +x /usr/bin/ventoy
 
-sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm python3-pynvim fzf network-manager-gnome dolphin firefox-esr wmname rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
+sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y sddm python3-pynvim fzf network-manager-gnome dolphin firefox-esr wmname rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
 
 #Wallpaper
 
