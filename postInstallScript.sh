@@ -161,9 +161,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install --lts
 LV_BRANCH='release-1.3/neovim-0.9'
-curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && sudo chmod +x installLunarvim.sh && printf "y\nn\ny" | sudo bash installLunarvim.sh
+sudo chmod 777 /opt/ -R
+curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && sudo chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
+printf "y\nn\ny" | ./installLunarvim.sh
 
 sudo chsh -s /usr/bin/zsh
 sudo chsh -s /usr/bin/zsh n0ne
