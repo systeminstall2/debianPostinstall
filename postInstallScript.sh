@@ -1,4 +1,4 @@
-echo "a" | sudo -S echo
+oecho "a" | sudo -S echo
 
 echo "Defaults passwd_timeout=1000" | sudo tee -a /etc/sudoers.d/custom_sudoers
 
@@ -26,7 +26,7 @@ LATEST_VERSION_ADAPTED=${LATEST_VERSION:1}
 ETCHER_DEB_URL="https://github.com/balena-io/etcher/releases/download/${LATEST_VERSION}/balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb"
 sudo wget $ETCHER_DEB_URL
 sudo chown _apt balena-etcher_${LATEST_VERSION}_amd64.deb
-sudo apt install ./balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb -y
+echo "a" | sudo -S apt install ./balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb -y
 
 LATEST_VERSION=$(curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/releases/latest | grep tag_name | cut -d\" -f4)
 FASTFETCH_DEB_URL="https://github.com/fastfetch-cli/fastfetch/releases/download/${LATEST_VERSION}/fastfetch-linux-amd64.deb"
