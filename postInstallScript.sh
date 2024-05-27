@@ -172,7 +172,7 @@ sudo su -c 'echo "arch" > /etc/hostname'
 
 sudo rm -rf /etc/sudoers.d/custom_sudoers
 
-printf "\n\n\n\DONE!\n\n\n"
-for i in {10..1};do echo "Rebooting in $i seconds" && sleep 1;done
+printf "\n\n\n\Installation Finished!\n\n\n"
+echo -n "Rebooting in    " && for i in {10..1};do echo -n "$i   "&& sleep 1;done
 
 systemctl reboot
