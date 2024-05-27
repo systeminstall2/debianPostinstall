@@ -261,4 +261,7 @@ fi
 if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
+# Needed because commands like shutdown and reboot are in /sbin
+export PATH=$PATH:/sbin
+
 echo ""
