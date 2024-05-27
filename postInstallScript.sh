@@ -41,17 +41,6 @@ sudo wget $RUSTDESK_DEB_URL
 sudo chown _apt rustdesk-${LATEST_VERSION}-x86_64.deb
 sudo apt install ./rustdesk-${LATEST_VERSION}-x86_64.deb -y
 
-wget https://portswigger.net/burp/releases/community/latest
-VERSION=$(cat latest | grep -E "....\..\..\.." --color=auto -o | head -n 1)
-wget "https://portswigger-cdn.net/burp/releases/download?product=community&version=2024.3.1.4&type=Linux" -O burp.sh
-chmod +x burp.sh
-./burp.sh -c
-#sudo mv ~/BurpSuiteCommunity/ /opt/Burpsuite
-#echo "bash /opt/Burpsuite/BurpSuiteCommunity" | sudo tee /usr/bin/Burpsuite
-#sudo chmod +x /usr/bin/Burpsuite
-#mkdir ~/.local/share/applications -p
-#mv /opt/Burpsuite/Burp\ Suite\ Community\ Edition.desktop ~/.local/share/applications/Burpsuite.desktop
-
 sudo apt-get install wget gpg -y
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
@@ -136,6 +125,19 @@ mkdir -p ~/.config/rofi && cp ~/debianPostinstall/rofi/* ~/.config/rofi/ -r
 
 sudo rm ~/.config/terminator/config
 mkdir -p ~/.config/terminator && cat ~/debianPostinstall/terminator > ~/.config/terminator/config
+
+#Burpsuite
+
+wget https://portswigger.net/burp/releases/community/latest
+VERSION=$(cat latest | grep -E "....\..\..\.." --color=auto -o | head -n 1)
+wget "https://portswigger-cdn.net/burp/releases/download?product=community&version=2024.3.1.4&type=Linux" -O burp.sh
+chmod +x burp.sh
+./burp.sh -c
+#sudo mv ~/BurpSuiteCommunity/ /opt/Burpsuite
+#echo "bash /opt/Burpsuite/BurpSuiteCommunity" | sudo tee /usr/bin/Burpsuite
+#sudo chmod +x /usr/bin/Burpsuite
+#mkdir ~/.local/share/applications -p
+#mv /opt/Burpsuite/Burp\ Suite\ Community\ Edition.desktop ~/.local/share/applications/Burpsuite.desktop
 
 # Writing nvim #########################################
 
