@@ -173,6 +173,10 @@ sudo chsh -s /usr/bin/zsh n0ne
 
 sudo su -c 'echo "arch" > /etc/hostname'
 
+#Removing Plasma which is included in standard but I don't want it
+
+sudo apt remove --purge plasma* kde* -y
+
 #finishing
 
 sudo rm -rf /etc/sudoers.d/custom_sudoers
