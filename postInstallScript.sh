@@ -46,6 +46,7 @@ VERSION=$(cat latest | grep -E "....\..\..\.." --color=auto -o | head -n 1)
 wget "https://portswigger-cdn.net/burp/releases/download?product=community&version=2024.3.1.4&type=Linux" -O burp.sh
 chmod +x burp.sh
 printf "o\n \ny\n \n" | ./burp.sh -c
+sudo mv ~/BurpSuiteCommunity/BurpSuiteCommunity /usr/bin/Burpsuite
 
 sudo apt-get install wget gpg -y
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -72,10 +73,11 @@ ventoyVersion=$(curl https://github.com/ventoy/Ventoy/releases | grep -v "ventoy
 ventoyURL="https://github.com/ventoy/Ventoy/releases/download/v$ventoyVersion/ventoy-$ventoyVersion-linux.tar.gz"
 wget $ventoyURL -O ventoy.tar.gz
 tar --extract -f ventoy.tar.gz
-sudo cp ventoy-$ventoyVersion/Ventoy2Disk.sh /usr/bin/ventoy
-sudo chmod +x /usr/bin/ventoy.sh
+sudo cp ventoy-$ventoyVersion/ /opt/ventoy -r
+echo "cd /opt/ventoy && bash Ventoy2Disk.sh && cd ~/" | sudo tee /usr/bin/ventoy
+sudo chmod +x /usr/bin/ventoy
 
-sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm python3-pynvim cargo network-manager-gnome wmname rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
+sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y balena-etcher sddm python3-pynvim cargo network-manager-gnome firefox-esr wmname rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
 
 #Wallpaper
 
@@ -131,6 +133,8 @@ sudo rm ~/.config/terminator/config
 mkdir -p ~/.config/terminator && cat ~/debianPostinstall/terminator > ~/.config/terminator/config
 
 # Writing nvim #########################################
+
+cargo install fd-find --force
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installRust.sh && sudo chmod +x installRust.sh && ./installRust.sh -q -y
 echo 'export RUSTUP_HOME=/opt/rust' | sudo tee -a /etc/profile.d/rust.sh
