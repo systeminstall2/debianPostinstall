@@ -48,6 +48,7 @@ chmod +x burp.sh
 printf "o\n \ny\n \n" | ./burp.sh -c
 sudo mv ~/BurpSuiteCommunity/ /opt/Burpsuite
 echo "bash /opt/Burpsuite/BurpSuiteCommunity" | sudo tee /usr/bin/Burpsuite
+sudo chmod +x /usr/bin/Burpsuite
 mkdir ~/.local/share/applications -p
 mv /opt/Burpsuite/Burp\ Suite\ Community\ Edition.desktop ~/.local/share/applications/Burpsuite.desktop
 
