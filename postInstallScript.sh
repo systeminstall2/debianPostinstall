@@ -46,11 +46,11 @@ VERSION=$(cat latest | grep -E "....\..\..\.." --color=auto -o | head -n 1)
 wget "https://portswigger-cdn.net/burp/releases/download?product=community&version=2024.3.1.4&type=Linux" -O burp.sh
 chmod +x burp.sh
 printf "o\n \ny\n \n" | ./burp.sh -c
-sudo mv ~/BurpSuiteCommunity/ /opt/Burpsuite
-echo "bash /opt/Burpsuite/BurpSuiteCommunity" | sudo tee /usr/bin/Burpsuite
-sudo chmod +x /usr/bin/Burpsuite
-mkdir ~/.local/share/applications -p
-mv /opt/Burpsuite/Burp\ Suite\ Community\ Edition.desktop ~/.local/share/applications/Burpsuite.desktop
+#sudo mv ~/BurpSuiteCommunity/ /opt/Burpsuite
+#echo "bash /opt/Burpsuite/BurpSuiteCommunity" | sudo tee /usr/bin/Burpsuite
+#sudo chmod +x /usr/bin/Burpsuite
+#mkdir ~/.local/share/applications -p
+#mv /opt/Burpsuite/Burp\ Suite\ Community\ Edition.desktop ~/.local/share/applications/Burpsuite.desktop
 
 sudo apt-get install wget gpg -y
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
