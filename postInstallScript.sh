@@ -148,7 +148,7 @@ rustup default stable
 source ~/.cargo/env
 source /etc/profile
 #Temporary alias bc after reboot it works anyway
-alias cargo=~/.cargo/bin/cargo
+export PATH=$PATH:~/.cargo/bin
 cargo install fd-find --force
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 sudo chmod +x nvim.appimage
