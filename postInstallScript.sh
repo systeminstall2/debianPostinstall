@@ -175,9 +175,9 @@ sudo su -c 'echo "arch" > /etc/hostname'
 
 #Removing Plasma which is included in standard but I don't want it
 
-sudo apt remove --purge plasma* kde* -y
+#sudo apt remove --purge plasma* kde* -y
 
-sudo apt install dolphin -y
+#sudo apt install dolphin -y
 
 #Theming
 
