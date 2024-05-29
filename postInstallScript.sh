@@ -181,9 +181,9 @@ sudo apt install dolphin -y
 
 #Theming
 
-wget "https://ocs-dl.fra1.cdn.digitaloceanspaces.com/data/files/1569524686/PearWhiteCursors.tar.gz?response-content-disposition=attachment%3B%2520PearWhiteCursors.tar.gz&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=RWJAQUNCHT7V2NCLZ2AL%2F20240529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240529T083443Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=34627b990989d7dbf974437d2dd36d794f8825bb0f9ff491bb6bb0a88bfc1c3b" -O Cursor.tar.gz
+#wget "https://ocs-dl.fra1.cdn.digitaloceanspaces.com/data/files/1569524686/PearWhiteCursors.tar.gz?response-content-disposition=attachment%3B%2520PearWhiteCursors.tar.gz&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=RWJAQUNCHT7V2NCLZ2AL%2F20240529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240529T083443Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=34627b990989d7dbf974437d2dd36d794f8825bb0f9ff491bb6bb0a88bfc1c3b" -O Cursor.tar.gz
 
-rm -rf ~.config/gtk*
+rm -rf ~/.config/gtk*
 cp ~/debianPostinstall/gtk/gtk* ~/.config/ -r
 
 #finishing
