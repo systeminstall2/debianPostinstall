@@ -37,9 +37,9 @@ sudo apt install ./fastfetch-linux-amd64.deb -y
 LATEST_VERSION=$(curl -s https://api.github.com/repos/rustdesk/rustdesk/releases/latest | grep tag_name | cut -d\" -f4)
 LATEST_VERSION_ADAPTED=${LATEST_VERSION}
 RUSTDESK_DEB_URL="https://github.com/rustdesk/rustdesk/releases/download/${LATEST_VERSION_ADAPTED}/rustdesk-${LATEST_VERSION}-x86_64.deb"
-sudo wget $RUSTDESK_DEB_URL
-sudo chown _apt rustdesk-${LATEST_VERSION}-x86_64.deb
-sudo apt install ./rustdesk-${LATEST_VERSION}-x86_64.deb -y
+echo "a" | sudo -S  wget $RUSTDESK_DEB_URL
+echo "a" | sudo -S chown _apt rustdesk-${LATEST_VERSION}-x86_64.deb
+echo "a" | sudo -S apt install ./rustdesk-${LATEST_VERSION}-x86_64.deb -y
 
 sudo apt-get install wget gpg -y
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
