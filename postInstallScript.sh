@@ -71,38 +71,16 @@ sudo cp ventoy-$ventoyVersion/ /opt/ventoy -r
 echo "sudo bash /opt/ventoy/Ventoy2Disk.sh \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9" | sudo tee /usr/bin/ventoy
 sudo chmod +x /usr/bin/ventoy
 
-sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y sddm python3-pynvim fzf network-manager-gnome dolphin firefox-esr wmname rustdesk syncthing code bspwm sxhkd ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
-
-#Wallpaper
-
-cp ~/debianPostinstall/thisImage ~/Documents/ && feh --bg-scale ~/Documents/thisImage
+sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y python3-pynvim fzf dolphin firefox-esr wmname rustdesk syncthing code ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
 
 # Setting up zsh plugins #####################
 
 sudo mkdir -p /usr/share/zsh/plugins && sudo mkdir -p /usr/share/zsh/plugins/zsh-syntax-highlighting && sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /usr/share/zsh/plugins/zsh-syntax-highlighting  && sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git /usr/share/zsh-autosuggestions
 
-# Set up start up programs
-
-sudo systemctl enable bluetooth
-
 # Install Nerdfonts for emojis
 
 mkdir fonts && cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip" && unzip Hack.zip && sudo mkdir -p /usr/local/share/fonts && rm Hack.zip && sudo mv * /usr/local/share/fonts/ && cd ..
 cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip" && unzip JetBrainsMono.zip && rm JetBrainsMono.zip && sudo mv * /usr/local/share/fonts/ && cd ..
-
-# Writing bspwmrc ##############################################
-
-mkdir ~/.config/bspwm
-mkdir -p ~/.config/bspwm/
-cat ~/debianPostinstall/bspwmrc > ~/.config/bspwm/bspwmrc
-sudo chmod 755 ~/.config/bspwm/bspwmrc
-
-# Writin sxhkdrc ########################################
-
-mkdir ~/.config/sxhkd
-mkdir -p ~/.config/sxhkd/
-cat ~/debianPostinstall/sxhkdrc >  ~/.config/sxhkd/sxhkdrc
-sudo chmod 644 ~/.config/sxhkd/sxhkdrc
 
 # Writing zshrc ##################################
 
@@ -133,11 +111,6 @@ VERSION=$(cat latest | grep -E "....\..\..\.." --color=auto -o | head -n 1)
 wget "https://portswigger-cdn.net/burp/releases/download?product=community&version=2024.3.1.4&type=Linux" -O burp.sh
 chmod +x burp.sh
 printf "o\n \ny\n \n" | ./burp.sh -c
-#sudo mv ~/BurpSuiteCommunity/ /opt/Burpsuite
-#echo "bash /opt/Burpsuite/BurpSuiteCommunity" | sudo tee /usr/bin/Burpsuite
-#sudo chmod +x /usr/bin/Burpsuite
-#mkdir ~/.local/share/applications -p
-#mv /opt/Burpsuite/Burp\ Suite\ Community\ Edition.desktop ~/.local/share/applications/Burpsuite.desktop
 
 # Writing nvim #########################################
 
@@ -161,11 +134,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install --lts
 LV_BRANCH='release-1.3/neovim-0.9'
-sudo chmod 777 /opt/ -R
+sudo chmod 777 /opt/
 curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && sudo chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
-#IDK IT ONLY WORKS LIKE THAT...
+#IDK/IDC IT ONLY WORKS LIKE THAT...
 echo 'curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh' > ~/.zprofile
 
 sudo chsh -s /usr/bin/zsh
@@ -173,19 +146,9 @@ sudo chsh -s /usr/bin/zsh n0ne
 
 sudo su -c 'echo "arch" > /etc/hostname'
 
-#Removing Plasma which is included in standard but I don't want it
-
-#sudo apt remove --purge plasma* kde* -y
-
-#sudo apt install dolphin -y
-
-#Theming
-
-#wget "https://ocs-dl.fra1.cdn.digitaloceanspaces.com/data/files/1569524686/PearWhiteCursors.tar.gz?response-content-disposition=attachment%3B%2520PearWhiteCursors.tar.gz&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=RWJAQUNCHT7V2NCLZ2AL%2F20240529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240529T083443Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=34627b990989d7dbf974437d2dd36d794f8825bb0f9ff491bb6bb0a88bfc1c3b" -O Cursor.tar.gz
-
-#cp ~/debianPostinstall/gtk/gtk* ~/.config/ -r
-
 #finishing
+
+sudo chmod 755 /opt/
 
 sudo rm -rf /etc/sudoers.d/custom_sudoers
 
