@@ -7,13 +7,8 @@ printf "\n\n\n The Script will install everything now, you don't have to do anyt
 
 #Creating Basic folders
 
-mkdir ~/Desktop
-mkdir ~/Documents
-mkdir ~/Downloads
 mkdir ~/Unwichtig
 mkdir ~/Hashcat
-mkdir ~/Music
-
 
 #Installing Software
 
@@ -71,7 +66,7 @@ sudo cp ventoy-$ventoyVersion/ /opt/ventoy -r
 echo "sudo bash /opt/ventoy/Ventoy2Disk.sh \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9" | sudo tee /usr/bin/ventoy
 sudo chmod +x /usr/bin/ventoy
 
-sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y python3-pynvim fzf dolphin firefox-esr wmname rustdesk syncthing code ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
+sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y python3-pynvim sddm fzf dolphin firefox-esr wmname rustdesk syncthing code ripgrep fonts-hack-ttf brasero rofi feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
 
 # Setting up zsh plugins #####################
 
@@ -139,7 +134,7 @@ curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
 #IDK/IDC IT ONLY WORKS LIKE THAT...
-echo 'curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh' > ~/.zprofile
+echo 'curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh && echo "" > ~/.zprofile && reboot' > ~/.zprofile
 
 sudo chsh -s /usr/bin/zsh
 sudo chsh -s /usr/bin/zsh n0ne
