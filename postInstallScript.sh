@@ -119,6 +119,11 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 LV_BRANCH='release-1.3/neovim-0.9'
 sudo chmod 777 /opt/
+source ~/.cargo/env
+source /etc/profile
+rustup default stable
+source ~/.cargo/env
+source /etc/profile
 curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && sudo chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
