@@ -79,6 +79,8 @@ cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2
 
 # Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
 
+cat ~/debianPostinstall/zshrc > ~/.zshrc
+
 sudo rm -rf ~/.config/* ~/.local/share/*
 unzip configDirs.zip
 cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
