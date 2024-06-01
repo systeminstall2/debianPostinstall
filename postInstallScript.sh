@@ -10,6 +10,16 @@ printf "\n\n\n The Script will install everything now, you don't have to do anyt
 mkdir ~/Unwichtig
 mkdir ~/Hashcat
 
+# Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
+
+cat ~/debianPostinstall/zshrc > ~/.zshrc
+
+sudo rm -rf ~/.config/* ~/.local/share/*
+printf "A\n" | unzip configDirs.zip
+cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
+cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
+sudo cp ~/debianPostinstall/sddmTheme/ /usr/share/sddm/themes/sugar-dark -r
+
 #Installing Software
 
 sudo apt install curl -y
@@ -76,16 +86,6 @@ sudo mkdir -p /usr/share/zsh/plugins && sudo mkdir -p /usr/share/zsh/plugins/zsh
 
 mkdir fonts && cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip" && unzip Hack.zip && sudo mkdir -p /usr/local/share/fonts && rm Hack.zip && sudo mv * /usr/local/share/fonts/ && cd ..
 cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip" && unzip JetBrainsMono.zip && rm JetBrainsMono.zip && sudo mv * /usr/local/share/fonts/ && cd ..
-
-# Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
-
-cat ~/debianPostinstall/zshrc > ~/.zshrc
-
-sudo rm -rf ~/.config/* ~/.local/share/*
-printf "A\n" | unzip configDirs.zip
-cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
-cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
-sudo cp ~/debianPostinstall/sddmTheme/ /usr/share/sddm/themes/sugar-dark -r
 
 #Burpsuite
 
