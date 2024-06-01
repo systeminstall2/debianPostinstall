@@ -89,10 +89,8 @@ printf "o\n \ny\n \n" | ./burp.sh -c
 
 cat ~/debianPostinstall/zshrc > ~/.zshrc
 
-sudo rm -rf ~/.config/* ~/.local/share/*
-printf "A\n" | unzip configDirs.zip
-cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
-cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
+python3 -m pip install konsave --break-system-packages
+konsave -i configSave.knsv
 sudo cp ~/debianPostinstall/sddmTheme/ /usr/share/sddm/themes/sugar-dark -r
 
 # Writing nvim #########################################
