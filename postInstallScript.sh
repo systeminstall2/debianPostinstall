@@ -82,7 +82,7 @@ cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2
 cat ~/debianPostinstall/zshrc > ~/.zshrc
 
 sudo rm -rf ~/.config/* ~/.local/share/*
-unzip configDirs.zip
+printf "A\n" | unzip configDirs.zip
 cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
 cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
 
