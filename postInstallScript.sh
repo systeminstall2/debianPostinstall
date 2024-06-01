@@ -77,27 +77,11 @@ sudo mkdir -p /usr/share/zsh/plugins && sudo mkdir -p /usr/share/zsh/plugins/zsh
 mkdir fonts && cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip" && unzip Hack.zip && sudo mkdir -p /usr/local/share/fonts && rm Hack.zip && sudo mv * /usr/local/share/fonts/ && cd ..
 cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip" && unzip JetBrainsMono.zip && rm JetBrainsMono.zip && sudo mv * /usr/local/share/fonts/ && cd ..
 
-# Writing zshrc ##################################
+# Copying all configs and stuff for kde and terminator etc etc
 
-cat ~/debianPostinstall/zshrc > ~/.zshrc
-
-# Writing polybar config ###############################
-
-sudo rm -rf ~/.config/polybar/
-mkdir -p ~/.config/polybar/
-cp ~/debianPostinstall/polybar/* ~/.config/polybar/ -r
-
-sudo chmod +x ~/.config/polybar/scripts/check-network
-sudo chmod +x ~/.config/polybar/launch.sh
-
-# Writing rofi ################################
-
-mkdir -p ~/.config/rofi && cp ~/debianPostinstall/rofi/* ~/.config/rofi/ -r
-
-# Writing terminator ###################################
-
-sudo rm ~/.config/terminator/config
-mkdir -p ~/.config/terminator && cat ~/debianPostinstall/terminator > ~/.config/terminator/config
+sudo rm -rf ~/.config ~/.local/share
+cp ~/debianPostinstall/dotConfig ~/.config -R
+cp ~/debianPostinstall/dotLocalShare ~/.config -R
 
 #Burpsuite
 
@@ -140,6 +124,10 @@ sudo chsh -s /usr/bin/zsh
 sudo chsh -s /usr/bin/zsh n0ne
 
 sudo su -c 'echo "arch" > /etc/hostname'
+
+#Wallpaper
+
+cp ~/debianPostinstall/thisImage.jpg ~/Documents/thisImage.jpg
 
 #finishing
 
