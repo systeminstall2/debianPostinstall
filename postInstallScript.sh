@@ -85,6 +85,8 @@ cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
 cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
 sudo rm -rf /usr/share/sddm/*
 sudo cp ~/debianPostinstall/sddm/* /usr/share/sddm/
+sudo rm -rf /etc/local*
+sudo cp ~/debianPostinstall/local* /etc/ -r
 
 #Burpsuite
 
