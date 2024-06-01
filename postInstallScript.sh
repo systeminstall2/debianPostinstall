@@ -85,6 +85,7 @@ sudo rm -rf ~/.config/* ~/.local/share/*
 printf "A\n" | unzip configDirs.zip
 cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
 cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
+sudo cp ~/debianPostinstall/sddmTheme/ /usr/share/sddm/themes/sugar-dark -r
 
 #Burpsuite
 
@@ -95,6 +96,8 @@ chmod +x burp.sh
 printf "o\n \ny\n \n" | ./burp.sh -c
 
 # Writing nvim #########################################
+
+sudo chmod 777 /opt/
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installRust.sh && sudo chmod +x installRust.sh && ./installRust.sh -q -y
 echo 'export RUSTUP_HOME=/opt/rust' | sudo tee -a /etc/profile.d/rust.sh
@@ -116,7 +119,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install --lts
 LV_BRANCH='release-1.3/neovim-0.9'
-sudo chmod 777 /opt/
 curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && sudo chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
@@ -127,6 +129,7 @@ sudo chsh -s /usr/bin/zsh
 sudo chsh -s /usr/bin/zsh n0ne
 
 sudo su -c 'echo "arch" > /etc/hostname'
+
 
 #Wallpaper
 
