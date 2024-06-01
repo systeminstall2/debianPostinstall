@@ -77,11 +77,12 @@ sudo mkdir -p /usr/share/zsh/plugins && sudo mkdir -p /usr/share/zsh/plugins/zsh
 mkdir fonts && cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip" && unzip Hack.zip && sudo mkdir -p /usr/local/share/fonts && rm Hack.zip && sudo mv * /usr/local/share/fonts/ && cd ..
 cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip" && unzip JetBrainsMono.zip && rm JetBrainsMono.zip && sudo mv * /usr/local/share/fonts/ && cd ..
 
-# Copying all configs and stuff for kde and terminator etc etc
+# Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
 
-sudo rm -rf ~/.config ~/.local/share
-cp ~/debianPostinstall/dotConfig ~/.config -R
-cp ~/debianPostinstall/dotLocalShare ~/.config -R
+sudo rm -rf ~/.config/* ~/.local/share/*
+unzip configDirs.zip
+cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
+cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
 
 #Burpsuite
 
