@@ -80,16 +80,16 @@ cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2
 # Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
 
 cat ~/debianPostinstall/zshrc > ~/.zshrc
+sudo locale-gen de_DE.UTF-8
 
-echo 'sudo rm -rf ~/.config/* ~/.local/share/*
+echo 'cd ~/debianPostinstall && sudo rm -rf ~/.config/* ~/.local/share/*
 printf "A\n" | unzip configDirs.zip
 cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
 cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
-sudo rm -rf /usr/share/sddm/*
-sudo rm -rf /etc/local*
-sudo cp ~/debianPostinstall/local* /etc/ -r' > configPlasmaAfterReboot.sh && chmod +x configPlasmaAfterReboot.sh
-
-#sudo cp ~/debianPostinstall/sddm/* /usr/share/sddm/ -r          add this above
+printf "a" | sudo -S rm -rf /usr/share/sddm/*
+printf "a" | sudo -S cp ~/debianPostinstall/sddm/* /usr/share/sddm/ -r
+printf "a" | sudo -S rm -rf /etc/local*
+printf "a" | sudo -S cp ~/debianPostinstall/local* /etc/ -r' > configPlasmaAfterReboot.sh && chmod +x configPlasmaAfterReboot.sh
 
 #Burpsuite
 
