@@ -86,9 +86,10 @@ printf "A\n" | unzip configDirs.zip
 cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
 cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
 sudo rm -rf /usr/share/sddm/*
-sudo cp ~/debianPostinstall/sddm/* /usr/share/sddm/ -r
 sudo rm -rf /etc/local*
 sudo cp ~/debianPostinstall/local* /etc/ -r' > configPlasmaAfterReboot.sh && chmod +x configPlasmaAfterReboot.sh
+
+#sudo cp ~/debianPostinstall/sddm/* /usr/share/sddm/ -r          add this above
 
 #Burpsuite
 
