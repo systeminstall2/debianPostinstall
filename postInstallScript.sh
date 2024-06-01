@@ -80,9 +80,11 @@ cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2
 # Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
 
 sudo rm -rf ~/.config/* ~/.local/share/*
-unzip configDirs.zip
+printf "A\n" | unzip configDirs.zip
 cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
 cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
+sudo rm -rf /usr/share/sddm/*
+sudo cp ~/debianPostinstall/sddm/* /usr/share/sddm/
 
 #Burpsuite
 
