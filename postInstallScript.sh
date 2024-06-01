@@ -77,6 +77,13 @@ sudo mkdir -p /usr/share/zsh/plugins && sudo mkdir -p /usr/share/zsh/plugins/zsh
 mkdir fonts && cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip" && unzip Hack.zip && sudo mkdir -p /usr/local/share/fonts && rm Hack.zip && sudo mv * /usr/local/share/fonts/ && cd ..
 cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip" && unzip JetBrainsMono.zip && rm JetBrainsMono.zip && sudo mv * /usr/local/share/fonts/ && cd ..
 
+# Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
+
+sudo rm -rf ~/.config/* ~/.local/share/*
+unzip configDirs.zip
+cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
+cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
+
 #Burpsuite
 
 wget https://portswigger.net/burp/releases/community/latest
@@ -85,17 +92,7 @@ wget "https://portswigger-cdn.net/burp/releases/download?product=community&versi
 chmod +x burp.sh
 printf "o\n \ny\n \n" | ./burp.sh -c
 
-# Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
-
-cat ~/debianPostinstall/zshrc > ~/.zshrc
-
-python3 -m pip install konsave --break-system-packages
-konsave -i configSave.knsv
-sudo cp ~/debianPostinstall/sddmTheme/ /usr/share/sddm/themes/sugar-dark -r
-
 # Writing nvim #########################################
-
-sudo chmod 777 /opt/
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installRust.sh && sudo chmod +x installRust.sh && ./installRust.sh -q -y
 echo 'export RUSTUP_HOME=/opt/rust' | sudo tee -a /etc/profile.d/rust.sh
@@ -117,6 +114,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install --lts
 LV_BRANCH='release-1.3/neovim-0.9'
+sudo chmod 777 /opt/
 curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && sudo chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
@@ -128,6 +126,10 @@ sudo chsh -s /usr/bin/zsh n0ne
 
 sudo su -c 'echo "arch" > /etc/hostname'
 
+#Wallpaper
+
+cp ~/debianPostinstall/thisImage.jpg ~/Documents/thisImage.jpg
+
 #finishing
 
 sudo chmod 755 /opt/
@@ -138,3 +140,4 @@ printf "\n\n\n\Installation Finished!\n\n\n"
 echo -n "Rebooting in    " && for i in {10..1};do echo -n "$i   "&& sleep 1;done
 
 systemctl reboot
+
