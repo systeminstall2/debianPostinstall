@@ -10,16 +10,6 @@ printf "\n\n\n The Script will install everything now, you don't have to do anyt
 mkdir ~/Unwichtig
 mkdir ~/Hashcat
 
-# Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
-
-cat ~/debianPostinstall/zshrc > ~/.zshrc
-
-sudo rm -rf ~/.config/* ~/.local/share/*
-printf "A\n" | unzip configDirs.zip
-cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
-cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
-sudo cp ~/debianPostinstall/sddmTheme/ /usr/share/sddm/themes/sugar-dark -r
-
 #Installing Software
 
 sudo apt install curl -y
@@ -95,6 +85,16 @@ wget "https://portswigger-cdn.net/burp/releases/download?product=community&versi
 chmod +x burp.sh
 printf "o\n \ny\n \n" | ./burp.sh -c
 
+# Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
+
+cat ~/debianPostinstall/zshrc > ~/.zshrc
+
+sudo rm -rf ~/.config/* ~/.local/share/*
+printf "A\n" | unzip configDirs.zip
+cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
+cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
+sudo cp ~/debianPostinstall/sddmTheme/ /usr/share/sddm/themes/sugar-dark -r
+
 # Writing nvim #########################################
 
 sudo chmod 777 /opt/
@@ -129,11 +129,6 @@ sudo chsh -s /usr/bin/zsh
 sudo chsh -s /usr/bin/zsh n0ne
 
 sudo su -c 'echo "arch" > /etc/hostname'
-
-
-#Wallpaper
-
-cp ~/debianPostinstall/thisImage.jpg ~/Documents/thisImage.jpg
 
 #finishing
 
