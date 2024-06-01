@@ -1,7 +1,3 @@
-Installation: 
+Help -> type: auto url=http://websiteWherePreseedIs <Enter>   
 
-cd ~/
-git clone https://github.com/systeminstall2/systeminstall
-cd systeminstall
-chmod +x postInstallScript.sh
-./postInstallScript.sh
+Alles wird installiert
