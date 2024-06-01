@@ -79,6 +79,8 @@ cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2
 
 # Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
 
+cat ~/debianPostinstall/zshrc > ~/.zshrc
+
 echo 'sudo rm -rf ~/.config/* ~/.local/share/*
 printf "A\n" | unzip configDirs.zip
 cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
@@ -128,7 +130,7 @@ curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
 #IDK/IDC IT ONLY WORKS LIKE THAT...
-echo 'rustup default stable && curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh && printf "a" | sudo -S bash configPlasmaAfterReboot.sh && echo "" > ~/.zprofile && sudo systemctl reboot' > ~/.zprofile
+echo 'rustup default stable && curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh && bash ~/debianPostinstall/configPlasmaAfterReboot.sh && echo "" > ~/.zprofile && sudo systemctl reboot' > ~/.zprofile
 
 sudo chsh -s /usr/bin/zsh
 sudo chsh -s /usr/bin/zsh n0ne
