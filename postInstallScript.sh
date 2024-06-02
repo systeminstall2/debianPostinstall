@@ -24,6 +24,7 @@ sudo chown _apt balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb
 sudo chmod 777 balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb
 echo 1
 sudo apt install ./balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb -y
+echo "a" | sudo -S echo "1.5 as sudo reset"
 echo 2
 
 LATEST_VERSION=$(curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/releases/latest | grep tag_name | cut -d\" -f4)
