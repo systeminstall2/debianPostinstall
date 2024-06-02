@@ -104,6 +104,8 @@ printf "o\n \ny\n \n" | ./burp.sh -c
 
 # Writing nvim #########################################
 
+sudo chmod 777 /opt/
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installRust.sh && sudo chmod +x installRust.sh && ./installRust.sh -q -y
 echo 'export RUSTUP_HOME=/opt/rust' | sudo tee -a /etc/profile.d/rust.sh
 echo 'export PATH=$PATH:/opt/rust/bin' | sudo tee -a /etc/profile.d/rust.sh
@@ -124,7 +126,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install --lts
 LV_BRANCH='release-1.3/neovim-0.9'
-sudo chmod 777 /opt/
 source ~/.cargo/env
 source /etc/profile
 rustup default stable
