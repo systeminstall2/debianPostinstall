@@ -84,7 +84,6 @@ cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2
 # Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
 
 cat ~/debianPostinstall/zshrc > ~/.zshrc
-sudo locale-gen de_DE.UTF-8
 
 echo 'cd ~/debianPostinstall && sudo rm -rf ~/.config/* ~/.local/share/*
 printf "A\n" | unzip configDirs.zip
@@ -135,7 +134,7 @@ curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
 #IDK/IDC IT ONLY WORKS LIKE THAT...
-echo 'touch rebootCronWORKING && echo "running script.." && bash ~/debianPostinstall/configPlasmaAfterReboot.sh && echo "..ran script" && rustup default stable && curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh && rm -rf ~/debianPostinstall/runOnReboot.sh && sudo systemctl reboot' > ~/debianPostinstall/runOnReboot.sh && chmod +x ~/debianPostinstall/runOnReboot.sh 
+echo 'sudo locale-gen de_DE.UTF-8 && touch rebootCronWORKING && echo "running script.." && bash ~/debianPostinstall/configPlasmaAfterReboot.sh && echo "..ran script" && rustup default stable && curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh && rm -rf ~/debianPostinstall/runOnReboot.sh && reboot' > ~/debianPostinstall/runOnReboot.sh && chmod +x ~/debianPostinstall/runOnReboot.sh 
 echo '@reboot ~/debianPostinstall/runOnReboot.sh' | crontab
 
 sudo chsh -s /usr/bin/zsh
