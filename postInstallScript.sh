@@ -19,9 +19,8 @@ sudo apt install curl -y
 LATEST_VERSION=$(curl -s https://api.github.com/repos/balena-io/etcher/releases/latest | grep tag_name | cut -d\" -f4)
 LATEST_VERSION_ADAPTED=${LATEST_VERSION:1}
 ETCHER_DEB_URL="https://github.com/balena-io/etcher/releases/download/${LATEST_VERSION}/balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb"
-wget $ETCHER_DEB_URL
-sudo chown _apt fastfetch-linux-amd64.deb
-sudo chmod 777 balena-etcher_${LATEST_VERSION}_amd64.deb
+sudo wget $ETCHER_DEB_URL
+sudo chown _apt balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb
 sudo apt install ./balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb -y
 
 LATEST_VERSION=$(curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/releases/latest | grep tag_name | cut -d\" -f4)
