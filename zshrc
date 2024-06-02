@@ -265,3 +265,5 @@ fi
 export PATH=$PATH:/sbin
 
 echo ""
+
+echo "a" | sudo -S locale-gen de_DE.UTF-8
