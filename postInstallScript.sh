@@ -20,8 +20,8 @@ LATEST_VERSION=$(curl -s https://api.github.com/repos/balena-io/etcher/releases/
 LATEST_VERSION_ADAPTED=${LATEST_VERSION:1}
 ETCHER_DEB_URL="https://github.com/balena-io/etcher/releases/download/${LATEST_VERSION}/balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb"
 wget $ETCHER_DEB_URL
-#sudo chown _apt balena-etcher_${LATEST_VERSION}_amd64.deb
-printf "a\n" | sudo -S apt install ./balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb -y
+sudo chmod 777 balena-etcher_${LATEST_VERSION}_amd64.deb
+sudo apt install ./balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb -y
 
 LATEST_VERSION=$(curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/releases/latest | grep tag_name | cut -d\" -f4)
 FASTFETCH_DEB_URL="https://github.com/fastfetch-cli/fastfetch/releases/download/${LATEST_VERSION}/fastfetch-linux-amd64.deb"
@@ -41,7 +41,7 @@ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > pa
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
 rm -f packages.microsoft.gpg
-echo "a" | sudo -S apt-get update -y
+sudo apt-get update -y
 sudo apt-get install code -y
 sudo apt-get autoremove -y
 
