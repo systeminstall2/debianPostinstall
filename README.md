@@ -1,4 +1,4 @@
-Boot debian iso: Help -> type: auto url=http://websiteWherePreseedIs/preseed.cfg <Enter>   
+Boot debian iso: Help -> type: auto url=https://raw.githubusercontent.com/systeminstall2/debianPostinstall/main/preseed.cfg <Enter>   
 
 Alles wird installiert 
 
