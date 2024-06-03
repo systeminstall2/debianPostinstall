@@ -268,4 +268,4 @@ echo ""
 
 rustup default stable && curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh
 clear
-head -n -3 ~/.zshrc > tmppp && cat tmppp > ~/.zshrc
+head -n -2 ~/.zshrc > tmppp && cat tmppp > ~/.zshrc
