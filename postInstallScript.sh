@@ -13,10 +13,9 @@ printf "a" | sudo -S cp ~/debianPostinstall/sddm/* /usr/share/sddm/ -r
 printf "a" | sudo -S rm -rf /etc/local*
 printf "a" | sudo -S cp ~/debianPostinstall/local* /etc/ -r
 
-sudo apt install kde-full
-
 echo "Defaults passwd_timeout=1000" | sudo tee -a /etc/sudoers.d/custom_sudoers
 
+sudo apt install kde-full -y
 
 printf "\n\n\n The Script will install everything now, you don't have to do anything!\n\n\n"
 
