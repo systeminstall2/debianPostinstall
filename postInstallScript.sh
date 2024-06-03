@@ -2,6 +2,19 @@ head -n -1 /home/n0ne/.bashrc > tmp && cat tmp > /home/n0ne/.bashrc
 
 echo "a" | sudo -S echo
 
+sudo apt install unzip
+
+cd ~/debianPostinstall && sudo rm -rf ~/.config/* ~/.local/share/*
+printf "A\n" | unzip configDirs.zip
+cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
+cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
+printf "a" | sudo -S rm -rf /usr/share/sddm/*
+printf "a" | sudo -S cp ~/debianPostinstall/sddm/* /usr/share/sddm/ -r
+printf "a" | sudo -S rm -rf /etc/local*
+printf "a" | sudo -S cp ~/debianPostinstall/local* /etc/ -r
+
+sudo apt install kde-full
+
 echo "Defaults passwd_timeout=1000" | sudo tee -a /etc/sudoers.d/custom_sudoers
 
 
@@ -87,15 +100,6 @@ cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2
 
 cat ~/debianPostinstall/zshrc > ~/.zshrc
 
-echo 'cd ~/debianPostinstall && sudo rm -rf ~/.config/* ~/.local/share/*
-printf "A\n" | unzip configDirs.zip
-cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
-cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
-printf "a" | sudo -S rm -rf /usr/share/sddm/*
-printf "a" | sudo -S cp ~/debianPostinstall/sddm/* /usr/share/sddm/ -r
-printf "a" | sudo -S rm -rf /etc/local*
-printf "a" | sudo -S cp ~/debianPostinstall/local* /etc/ -r' > configPlasmaAfterReboot.sh && chmod +x configPlasmaAfterReboot.sh
-
 #Burpsuite
 
 wget https://portswigger.net/burp/releases/community/latest
@@ -136,8 +140,6 @@ source /etc/profile
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
 #IDK/IDC IT ONLY WORKS LIKE THAT...
-echo 'echo "a" | sudo -S locale-gen de_DE.UTF-8 && bash ~/configPlasmaAfterReboot.sh && rm -rf ~/debianPostinstall/runOnReboot.sh' > ~/debianPostinstall/runOnReboot.sh && chmod 777 ~/debianPostinstall/runOnReboot.sh 
-echo '@reboot /home/n0ne/debianPostinstall/runOnReboot.sh' | crontab
 
 sudo chsh -s /usr/bin/zsh
 sudo chsh -s /usr/bin/zsh n0ne
