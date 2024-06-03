@@ -133,11 +133,10 @@ source /etc/profile
 rustup default stable
 source ~/.cargo/env
 source /etc/profile
-curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && sudo chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 rm -rf ~/.config/lvim && cp lvim ~/.config/lvim -r
 #IDK/IDC IT ONLY WORKS LIKE THAT...
-echo 'echo "a" | sudo -S locale-gen de_DE.UTF-8 && touch rebootCronWORKING && echo "running script.." && bash ~/configPlasmaAfterReboot.sh && echo "..ran script" && rustup default stable && curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh && rm -rf ~/debianPostinstall/runOnReboot.sh && reboot' > ~/debianPostinstall/runOnReboot.sh && chmod 777 ~/debianPostinstall/runOnReboot.sh 
+echo 'echo "a" | sudo -S locale-gen de_DE.UTF-8 && bash ~/configPlasmaAfterReboot.sh && rm -rf ~/debianPostinstall/runOnReboot.sh' > ~/debianPostinstall/runOnReboot.sh && chmod 777 ~/debianPostinstall/runOnReboot.sh 
 echo '@reboot /home/n0ne/debianPostinstall/runOnReboot.sh' | crontab
 
 sudo chsh -s /usr/bin/zsh
