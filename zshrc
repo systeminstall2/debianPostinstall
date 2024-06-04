@@ -270,3 +270,4 @@ rustup default stable && curl -s "https://raw.githubusercontent.com/LunarVim/Lun
 clear
 head -n -2 ~/.zshrc > tmppp && cat tmppp > ~/.zshrc
 echo "a" | sudo -S locale-gen de_DE.UTF-8
+bash /home/n0ne/runAfterReboot.sh
