@@ -8,6 +8,7 @@ echo "Defaults passwd_timeout=1000" | sudo tee -a /etc/sudoers.d/custom_sudoers
 
 sudo apt install kde-full -y
 
+echo "
 cd ~/debianPostinstall && sudo rm -rf ~/.config/* ~/.local/share/*
 printf "A\n" | unzip configDirs.zip
 cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
@@ -15,7 +16,7 @@ cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
 #printf "a" | sudo -S rm -rf /usr/share/sddm/*
 #printf "a" | sudo -S cp ~/debianPostinstall/sddm/* /usr/share/sddm/ -r
 printf "a" | sudo -S rm -rf /etc/local*
-printf "a" | sudo -S cp ~/debianPostinstall/local* /etc/ -r
+printf "a" | sudo -S cp ~/debianPostinstall/local* /etc/ -r" > runAfterReboot.sh && chmod +x /home/n0ne/runAfterReboot.sh
 
 printf "\n\n\n The Script will install everything now, you don't have to do anything!\n\n\n"
 
