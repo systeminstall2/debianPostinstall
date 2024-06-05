@@ -113,13 +113,28 @@ sudo chsh -s /usr/bin/zsh n0ne
 
 sudo su -c 'echo "arch" > /etc/hostname'
 
+echo "a" | sudo -S chmod 777 /opt/
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installRust.sh && sudo chmod +x installRust.sh && ./installRust.sh -q -y
+echo 'export RUSTUP_HOME=/opt/rust' | sudo tee -a /etc/profile.d/rust.sh
+echo 'export PATH=$PATH:/opt/rust/bin' | sudo tee -a /etc/profile.d/rust.sh
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+sudo chmod +x nvim.appimage
+sudo mv nvim.appimage /usr/bin/nvim
+curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh" | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm install --lts
+
+sudo chmod 755 /opt/
+
+
 #finishing
 
 sudo rm -rf /etc/sudoers.d/custom_sudoers
 
 printf "\n\n\n\Installation Finished!\n\n\n"
 echo -n "Rebooting in    " && for i in {10..1};do echo -n "$i   "&& sleep 1;done
-
-echo "@reboot terminator && terminator" | crontab
 
 systemctl reboot
