@@ -22,6 +22,7 @@ printf "\n\n\n The Script will install everything now, you don't have to do anyt
 
 #Creating Basic folders
 
+mkdir ~/Update
 mkdir ~/Unwichtig
 mkdir ~/Hashcat
 mkdir ~/Desktop
@@ -91,6 +92,32 @@ echo "sudo bash /opt/ventoy/Ventoy2Disk.sh \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9" 
 sudo chmod +x /usr/bin/ventoy
 
 sudo apt-get update -y && sudo apt upgrade -y && sudo apt install -y python3-pynvim ncdu sddm net-tools ark flatpak fzf dolphin firefox-esr wmname rustdesk syncthing code ripgrep fonts-hack-ttf brasero feh polybar tree chromium cmake gnome-disk-utility netcat-openbsd gparted kate keepassxc btop prusa-slicer maim fastfetch nmap p7zip-full python3-pip ripgrep sxiv syncthing terminator ufw unzip vim $virtualbox_name wget whois xclip zenity zsh
+
+#Writing Update script
+
+echo 'LATEST_VERSION=$(curl -s https://api.github.com/repos/balena-io/etcher/releases/latest | grep tag_name | cut -d\" -f4)
+LATEST_VERSION_ADAPTED=${LATEST_VERSION:1}
+ETCHER_DEB_URL="https://github.com/balena-io/etcher/releases/download/${LATEST_VERSION}/balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb"
+sudo wget $ETCHER_DEB_URL
+sudo chown _apt balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb
+sudo chmod 777 balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb
+sudo apt install ./balena-etcher_${LATEST_VERSION_ADAPTED}_amd64.deb -y
+echo "a" | sudo -S echo "1.5 as sudo reset"
+
+LATEST_VERSION=$(curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/releases/latest | grep tag_name | cut -d\" -f4)
+FASTFETCH_DEB_URL="https://github.com/fastfetch-cli/fastfetch/releases/download/${LATEST_VERSION}/fastfetch-linux-amd64.deb"
+sudo wget $FASTFETCH_DEB_URL
+sudo chown _apt fastfetch-linux-amd64.deb
+sudo apt install ./fastfetch-linux-amd64.deb -y
+
+LATEST_VERSION=$(curl -s https://api.github.com/repos/rustdesk/rustdesk/releases/latest | grep tag_name | cut -d\" -f4)
+LATEST_VERSION_ADAPTED=${LATEST_VERSION}
+RUSTDESK_DEB_URL="https://github.com/rustdesk/rustdesk/releases/download/${LATEST_VERSION_ADAPTED}/rustdesk-${LATEST_VERSION}-x86_64.deb"
+sudo wget $RUSTDESK_DEB_URL
+sudo chown _apt rustdesk-${LATEST_VERSION}-x86_64.deb
+sudo apt install ./rustdesk-${LATEST_VERSION}-x86_64.deb -y' > /home/n0ne/Documents/updateManualPackages.sh && chmod +x /home/n0ne/Documents/updateManualPackages.sh
+
+echo "cd ~/Update && sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo flatpak update -y && bash /home/n0ne/Documents/updateManualPackages.sh && sudo rm -rf *" | sudo tee /usr/bin/update && sudo chmod +x /usr/bin/update
 
 # Setting up zsh plugins #####################
 
