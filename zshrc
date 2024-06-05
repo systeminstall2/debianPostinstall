@@ -265,10 +265,3 @@ fi
 export PATH=$PATH:/sbin
 
 echo ""
-
-clear
-bash /home/n0ne/runAfterReboot.sh
-echo "a" | sudo -S locale-gen de_DE.UTF-8
-chmod +x /home/n0ne/debianPostinstall/installLvim.sh && bash /home/n0ne/debianPostinstall/installLvim.sh
-head -n -6 ~/.zshrc > tmppp && cat tmppp > ~/.zshrc
-echo "a" | sudo -S systemctl reboot
