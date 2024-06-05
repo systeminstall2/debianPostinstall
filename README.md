@@ -4,4 +4,6 @@ Wait until finished and decrypt and then login as n0ne: postInstalScript will ru
 
 Everything will be installed automatically
 
-After booting into KDE REBOOT AGAIN!
+After booting into KDE: Open "terminator" wait for .zshrc to run and then REBOOT AGAIN!
+
+DONE!
