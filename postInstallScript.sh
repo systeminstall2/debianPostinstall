@@ -26,6 +26,7 @@ mkdir ~/Unwichtig
 mkdir ~/Hashcat
 mkdir ~/Desktop
 mkdir ~/Downloads
+mkdir ~/Documents
 mkdir ~/Music
 mkdir ~/Pictures
 mkdir ~/Videos
