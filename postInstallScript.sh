@@ -13,8 +13,6 @@ cd ~/debianPostinstall && sudo rm -rf ~/.config/* ~/.local/share/*
 printf "A\n" | unzip configDirs.zip
 cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
 cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
-#printf "a" | sudo -S rm -rf /usr/share/sddm/*
-#printf "a" | sudo -S cp ~/debianPostinstall/sddm/* /usr/share/sddm/ -r
 printf "a" | sudo -S rm -rf /etc/local*
 printf "a" | sudo -S cp ~/debianPostinstall/local* /etc/ -r" > runAfterReboot.sh && chmod +x /home/n0ne/runAfterReboot.sh
 
@@ -96,7 +94,7 @@ sudo mkdir -p /usr/share/zsh/plugins && sudo mkdir -p /usr/share/zsh/plugins/zsh
 mkdir fonts && cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip" && unzip Hack.zip && sudo mkdir -p /usr/local/share/fonts && rm Hack.zip && sudo mv * /usr/local/share/fonts/ && cd ..
 cd fonts && wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip" && unzip JetBrainsMono.zip && rm JetBrainsMono.zip && sudo mv * /usr/local/share/fonts/ && cd ..
 
-# Copying all configs and stuff but only the important stuff not lunarvim(bc is done later) for kde and terminator etc etc
+# Copying zsh config
 
 cat ~/debianPostinstall/zshrc > ~/.zshrc
 
