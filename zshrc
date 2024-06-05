@@ -269,5 +269,6 @@ echo ""
 chmod +x /home/n0ne/debianPostinstall/installLvim.sh
 bash /home/n0ne/debianPostinstall/installLvim.sh
 echo "a" | sudo -S locale-gen de_DE.UTF-8
+sudo apt install rofi
 head -n -5 ~/.zshrc > tmpppp && cat tmpppp > ~/.zshrc
 sleep 3 && reboot
