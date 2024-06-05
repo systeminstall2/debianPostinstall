@@ -268,6 +268,6 @@ echo ""
 
 rustup default stable && curl -s "https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh" > installLunarvim.sh && chmod +x installLunarvim.sh && printf "y\nn\ny" | ./installLunarvim.sh
 clear
-head -n -2 ~/.zshrc > tmppp && cat tmppp > ~/.zshrc
 echo "a" | sudo -S locale-gen de_DE.UTF-8
 bash /home/n0ne/runAfterReboot.sh
+head -n -4 ~/.zshrc > tmppp && cat tmppp > ~/.zshrc
