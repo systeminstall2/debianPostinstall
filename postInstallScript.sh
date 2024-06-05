@@ -22,6 +22,11 @@ printf "\n\n\n The Script will install everything now, you don't have to do anyt
 
 mkdir ~/Unwichtig
 mkdir ~/Hashcat
+mkdir ~/Desktop
+mkdir ~/Downloads
+mkdir ~/Music
+mkdir ~/Pictures
+mkdir ~/Videos
 
 #Installing Software
 
