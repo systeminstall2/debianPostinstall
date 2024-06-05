@@ -269,4 +269,6 @@ echo ""
 clear
 bash /home/n0ne/runAfterReboot.sh
 echo "a" | sudo -S locale-gen de_DE.UTF-8
-head -n -4 ~/.zshrc > tmppp && cat tmppp > ~/.zshrc
+chmod +x /home/n0ne/debianPostinstall/installLvim.sh && bash /home/n0ne/debianPostinstall/installLvim.sh
+head -n -5 ~/.zshrc > tmppp && cat tmppp > ~/.zshrc
+echo "a" | sudo -S systemctl reboot
