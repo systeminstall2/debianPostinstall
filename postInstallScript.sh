@@ -129,6 +129,8 @@ echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 
 /bin/bash -c 'bash /home/n0ne/runAfterReboot.sh'
 
+echo "a" | sudo -S locale-gen de_DE.UTF-8
+
 #finishing
 
 sudo rm -rf /etc/sudoers.d/custom_sudoers
