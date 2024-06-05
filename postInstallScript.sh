@@ -113,7 +113,6 @@ sudo chsh -s /usr/bin/zsh n0ne
 
 sudo su -c 'echo "arch" > /etc/hostname'
 
-echo "a" | sudo -S chmod 777 /opt/
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installRust.sh && sudo chmod +x installRust.sh && ./installRust.sh -q -y
 echo 'export RUSTUP_HOME=/opt/rust' | sudo tee -a /etc/profile.d/rust.sh
@@ -126,9 +125,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install --lts
-
-sudo chmod 755 /opt/
-
+echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 
 #finishing
 
