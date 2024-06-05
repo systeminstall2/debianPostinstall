@@ -13,6 +13,8 @@ cd ~/debianPostinstall && echo "a" | sudo -S rm -rf ~/.config/* ~/.local/share/*
 printf "A\n" | unzip configDirs.zip
 cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
 cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
+chmod +x /home/n0ne/debianPostinstall/installLvim.sh
+bash /home/n0ne/debianPostinstall/installLvim.sh
 printf "a" | sudo -S rm -rf /etc/local*
 printf "a" | sudo -S cp ~/debianPostinstall/local* /etc/ -r" > runAfterReboot.sh && chmod +x /home/n0ne/runAfterReboot.sh
 
@@ -131,6 +133,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install --lts
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
+
+chmod +x /home/n0ne/debianPostinstall/installLvim.sh
+bash /home/n0ne/debianPostinstall/installLvim.sh
 
 /bin/bash -c 'bash /home/n0ne/runAfterReboot.sh'
 
