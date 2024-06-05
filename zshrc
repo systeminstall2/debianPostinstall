@@ -270,5 +270,6 @@ chmod +x /home/n0ne/debianPostinstall/installLvim.sh
 bash /home/n0ne/debianPostinstall/installLvim.sh
 echo "a" | sudo -S locale-gen de_DE.UTF-8
 sudo apt install rofi -y
-head -n -3 ~/.zshrc > tmpppp && cat tmpppp > ~/.zshrc
+head -n -4 ~/.zshrc > tmpppp && cat tmpppp > ~/.zshrc
+echo "bash /home/n0ne/debianPostinstall/installLvim.sh" >> ~/.zshrc
 sleep 3 && reboot
