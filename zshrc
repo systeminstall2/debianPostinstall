@@ -301,5 +301,5 @@ echo "a" | sudo -S locale-gen de_DE.UTF-8
 bash /home/n0ne/runAfterReboot.sh
 echo "a" | sudo -S locale-gen de_DE.UTF-8
 sudo chmod 755 /opt/
-head -n -36 ~/.zshrc > tmppp && cat tmppp > ~/.zshrc
+head -n -37 ~/.zshrc > tmppp && cat tmppp > ~/.zshrc
 systemctl reboot
