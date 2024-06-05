@@ -127,7 +127,7 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 
-/bin/bash -c 'chmod +x /home/n0ne/debianPostinstall/installLvim.sh && bash /home/n0ne/debianPostinstall/installLvim.sh && bash /home/n0ne/runAfterReboot.sh && echo "a" | sudo -S locale-gen de_DE.UTF-8'
+/bin/bash -c 'bash /home/n0ne/runAfterReboot.sh && chmod +x /home/n0ne/debianPostinstall/installLvim.sh && bash /home/n0ne/debianPostinstall/installLvim.sh && echo "a" | sudo -S locale-gen de_DE.UTF-8'
 
 #finishing
 
