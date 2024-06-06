@@ -7,3 +7,6 @@ Everything will be installed automatically
 After booting into KDE: Open "terminator" WAIT...
 
 DONE!
+
+
+Only Ethernet works tho...
