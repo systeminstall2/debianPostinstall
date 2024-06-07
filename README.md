@@ -10,3 +10,5 @@ DONE!
 
 
 Only Ethernet works tho...
+
+And some things like cursor or sddm theme have to be done manually but it works
