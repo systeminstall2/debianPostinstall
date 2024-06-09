@@ -168,6 +168,8 @@ bash /home/n0ne/debianPostinstall/installLvim.sh
 
 echo "a" | sudo -S locale-gen de_DE.UTF-8
 
+systemctl --user enable pulseaudio
+
 #finishing
 
 sudo rm -rf /etc/sudoers.d/custom_sudoers
