@@ -246,7 +246,7 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias neofetch='echo "use fastfetch, its installed!"'
-alias lvim='.local/bin/lvim'
+alias lvim='/home/n0ne/.local/bin/lvim'
 
 plugins=(zsh-syntax-highlighting, zsh-autosuggestions)
 
