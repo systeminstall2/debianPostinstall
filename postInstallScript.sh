@@ -13,8 +13,6 @@ cd ~/debianPostinstall && echo "a" | sudo -S rm -rf ~/.config/* ~/.local/share/*
 printf "A\n" | unzip configDirs.zip
 cp ~/debianPostinstall/dotConfig/* ~/.config/ -r
 cp ~/debianPostinstall/dotLocalShare/* ~/.local/share/ -r
-chmod +x /home/n0ne/debianPostinstall/installLvim.sh
-bash /home/n0ne/debianPostinstall/installLvim.sh
 printf "a" | sudo -S rm -rf /etc/local*
 printf "a" | sudo -S cp ~/debianPostinstall/local* /etc/ -r" > runAfterReboot.sh && chmod +x /home/n0ne/runAfterReboot.sh
 
