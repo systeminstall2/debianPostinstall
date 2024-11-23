@@ -145,26 +145,14 @@ printf "o\n \ny\n \n" | ./burp.sh -c
 sudo chsh -s /usr/bin/zsh
 sudo chsh -s /usr/bin/zsh n0ne
 
-sudo su -c 'echo "arch" > /etc/hostname'
+sudo su -c 'echo "jrlvacexso" > /etc/hostname'
 
-
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installRust.sh && sudo chmod +x installRust.sh && ./installRust.sh -q -y
-echo 'export RUSTUP_HOME=/opt/rust' | sudo tee -a /etc/profile.d/rust.sh
-echo 'export PATH=$PATH:/opt/rust/bin' | sudo tee -a /etc/profile.d/rust.sh
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 sudo chmod +x nvim.appimage
 sudo mv nvim.appimage /usr/bin/nvim
-curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh" | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm install --lts
-echo "export PATH=/home/n0ne/.local/bin:\$PATH" >> ~/.zshenv
 
-chmod +x /home/n0ne/debianPostinstall/installLvim.sh
-bash /home/n0ne/debianPostinstall/installLvim.sh
-
-/bin/bash -c 'bash /home/n0ne/runAfterReboot.sh'
+mkdir -p .config/nvim
+cp 
 
 echo "a" | sudo -S locale-gen de_DE.UTF-8
 
