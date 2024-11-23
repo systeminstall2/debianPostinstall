@@ -151,8 +151,9 @@ wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 sudo chmod +x nvim.appimage
 sudo mv nvim.appimage /usr/bin/nvim
 
-mkdir -p .config/nvim
-cp 
+mkdir -p ~/.config/nvim
+rm -rf ~/.config/nvim
+cp ~/debianPostinstall/nvim ~/.config/ -r
 
 echo "a" | sudo -S locale-gen de_DE.UTF-8
 
